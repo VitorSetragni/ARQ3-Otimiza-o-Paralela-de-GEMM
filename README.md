@@ -45,9 +45,6 @@ Foram implementadas 7 versões:
 ## Estrutura do projeto
 
 ```
-.
-├── gemm_cpu.c          # Versões CPU: naive, transposed, blocked, openmp, blocked_openmp
-├── gemm_cuda.cu        # Versões GPU: cuda_naive, cuda_tiled
 ├── Trabalho_Pratico_3.ipynb  # Notebook com experimentos, gráficos e análise
 └── README.md
 ```
@@ -60,29 +57,6 @@ Foram implementadas 7 versões:
 
 - GCC com suporte a OpenMP
 - NVCC (requer GPU NVIDIA — ativar GPU no Colab em *Ambiente de execução → Alterar tipo de ambiente de execução → GPU*)
-
-### Compilação e execução CPU
-
-```bash
-gcc gemm_cpu.c -O3 -march=native -fopenmp -fopt-info-vec -o gemm_cpu -lm
-
-# Uso: ./gemm_cpu <versão> <N> <repetições> [block_size]
-./gemm_cpu naive       512 5
-./gemm_cpu transposed  512 5
-./gemm_cpu blocked     512 5 64
-./gemm_cpu openmp      512 5
-./gemm_cpu blocked_openmp 512 5 32
-```
-
-### Compilação e execução GPU
-
-```bash
-nvcc gemm_cuda.cu -O3 -o gemm_cuda
-
-# Uso: ./gemm_cuda <naive|tiled> <N> <repetições>
-./gemm_cuda naive 1024 5
-./gemm_cuda tiled 1024 5
-```
 
 ---
 
