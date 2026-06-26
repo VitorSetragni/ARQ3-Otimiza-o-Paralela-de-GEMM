@@ -51,8 +51,6 @@ Foram implementadas 7 versões:
 
 ---
 
-## Como executar
-
 ### Pré-requisitos
 
 - GCC com suporte a OpenMP
